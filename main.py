@@ -75,9 +75,30 @@ def count_down(count):
 
 # -------------------------- UI Setup ----------------------------
 window = Tk()
-window.title("Pomodoro by Mandela")
+window.title("Pomodoro App")
 # window.config(bg="black")
 window.config(padx=100, pady=50, bg="black")
+
+
+
+
+#--- menubar ----
+def donothing():
+   t = Toplevel(window)
+   t.title('Config Menu')
+   t.label()
+   work_time_label = Label(text="Work Time in minute")
+
+
+menubar = Menu(window, tearoff=0)
+appmenu = Menu(menubar, name="menu", tearoff=0)
+menubar.add_cascade(label='Menu', menu=appmenu)
+appmenu.add_command(label="Config", command=donothing)
+appmenu.add_separator()
+appmenu.add_command(label='About...')
+# menubar.add_cascade(menu=appmenu)
+window['menu'] = menubar # <=> window.config(menu=menubar)
+
 
 
 
